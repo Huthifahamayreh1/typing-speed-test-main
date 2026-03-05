@@ -15,43 +15,112 @@
   </style>
 </head>
 <body>
+  <img src="./assets/images/pattern-star-1.svg" class="star star-tr" alt="">
+  <img src="./assets/images/pattern-star-2.svg" class="star star-bl" alt="">
 
-  Personal best: <!-- PB --> WPM
 
-  WPM: <!-- WPM -->
-  Accuracy: <!-- Accuracy -->
-  Time: <!-- Time -->
+  <div class="app-container">
 
-  Difficulty:
-  Easy
-  Medium
-  Hard
+    <header class="main-header">
+      <div class="logo-group">
+        <img src="./assets/images/logo-large.svg" class="logo-d" alt="Typing Speed Test">
+        <img src="./assets/images/logo-small.svg" class="logo-m" alt="Typing Speed Test">
+      </div>
+      <div class="pb-display">
+        <img src="./assets/images/icon-personal-best.svg" class="pb-icon" alt="">
+        <span class="pb-label">Personal best:</span>
+        <span class="pb-num" id="pb-val">0 WPM</span>
+      </div>
+    </header>
 
-  Mode:
-  Timed (60s)
-  Passage
+    <section class="stats-row" id="stats-row">
+      <div class="stat">WPM <b id="wpm">0</b></div>
+      <div class="divider dd"></div>
+      <div class="stat">Accuracy <b id="accuracy">100%</b></div>
+      <div class="divider dd"></div>
+      <div class="stat">Time <b id="timer">0:60</b></div>
 
-  <!-- Passage -->
+      <div class="controls-group desktop-controls">
+        <div class="divider"></div>
+        <span class="ctrl-label">Difficulty</span>
+        <div class="ctrl-btns" id="diff-selector">
+          <button class="nav-btn" data-level="easy">Easy</button>
+          <button class="nav-btn" data-level="medium">Medium</button>
+          <button class="nav-btn active" data-level="hard">Hard</button>
+        </div>
+        <div class="divider"></div>
+        <span class="ctrl-label">Mode</span>
+        <div class="ctrl-btns" id="mode-selector">
+          <button class="nav-btn active" data-mode="timed">Timed (60s)</button>
+          <button class="nav-btn" data-mode="passage">Passage</button>
+        </div>
+      </div>
 
-  Start Typing Test
-  Or click the text and start typing
+      <div class="controls-group m-selects">
+        <div class="m-select-wrap">
+          <select id="m-diff">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard" selected>Hard</option>
+          </select>
+          <img src="./assets/images/icon-down-arrow.svg" class="select-arrow" alt="">
+        </div>
+        <div class="m-select-wrap">
+          <select id="m-mode">
+            <option value="timed" selected>Timed (60s)</option>
+            <option value="passage">Passage</option>
+          </select>
+          <img src="./assets/images/icon-down-arrow.svg" class="select-arrow" alt="">
+        </div>
+      </div>
+    </section>
 
-  <!-- Test Complete Start -->
+    <main class="test-area" id="test-area">
+      <div id="text-display" class="text-canvas blurred"></div>
+      <div id="start-overlay" class="overlay">
+        <button id="start-btn" class="btn-primary">Start Typing Test</button>
+        <p>Or click the text and start typing</p>
+      </div>
+      <input type="text" id="typing-input"
+        spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">
+    </main>
 
-  Test Complete!
-  Solid run. Keep pushing to beat your high score.
+    <div class="results-screen" id="results-screen">
+      <div id="result-icon-wrap"></div>
+      <h2 class="result-title" id="result-title">Test Complete!</h2>
+      <p class="result-sub" id="result-sub">Solid run. Keep pushing to beat your high score.</p>
+      <div class="result-cards">
+        <div class="res-card">
+          <div class="res-card-label">WPM:</div>
+          <div class="res-card-val" id="res-wpm">0</div>
+        </div>
+        <div class="res-card">
+          <div class="res-card-label">Accuracy:</div>
+          <div class="res-card-val" id="res-acc">0%</div>
+        </div>
+        <div class="res-card">
+          <div class="res-card-label">Characters</div>
+          <div class="res-card-val" id="res-chars">0/0</div>
+        </div>
+      </div>
+      <button class="btn-secondary" id="go-again-btn">
+        <span id="go-again-label">Go Again</span>
+        <img src="./assets/images/icon-restart.svg" class="btn-icon" alt="">
+      </button>
+      <div class="confetti-wrap">
+        <canvas id="confetti-canvas"></canvas>
+      </div>
+    </div>
 
-  WPM: <!-- WPM -->
-  Accuracy: <!-- Accuracy -->
-  Characters: <!-- Correct/Incorrect -->
+    <footer id="footer-el">
+      <button id="restart-btn">
+        Restart Test
+        <img src="./assets/images/icon-restart.svg" class="btn-icon" alt="">
+      </button>
+    </footer>
 
-  Go Again
-  
-  <!-- Test Complete End -->
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
